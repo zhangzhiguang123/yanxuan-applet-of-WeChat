@@ -1,0 +1,119 @@
+.index .search{
+  width: 750rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content:center;
+  align-items: center;
+  padding: 20rpx 20rpx 0 20rpx;
+}
+
+.index .search text{
+  width: 128rpx;
+  font-size: 26rpx;
+  line-height: 56rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+ /* margin-right: 30rpx; */
+}
+
+.index .search .inp{
+  width: 580rpx;
+  height: 56rpx;
+  display: flex;
+  align-items: center;
+  margin: 0 40rpx 0 15rpx;
+  background: #ededed;
+  border-radius: 10rpx;
+}
+
+.index .search .inp image{
+  height: 28rpx;
+  width: 28rpx;
+  padding:0 10rpx;
+}
+
+/* 轮播图 */
+.index .swiper .swiperimg{
+  width:100%;
+}
+
+/* 商品分类列表 */
+
+.index .goodslist{
+  width: 750rpx;
+  height: 144rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.index .goodslist .goodbox navigator{
+  width: 150rpx;
+  height: 144rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.index .goodslist .goodbox image{
+  height: 58rpx;
+  width: 58rpx;
+}
+
+.index .goodslist .goodbox text{
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 品牌制造商楼层 */
+
+.index .brand{
+  height: 630rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.index .brand .title{
+  height: 120rpx;
+  width: 100%;
+  line-height: 120rpx;
+  color: #333;
+  text-align: center;
+  border-top: 20rpx solid #f4f4f4;
+}
+
+.index .brand .main{
+  height: 510rpx;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.index .brand .main .item{
+  height: 254rpx;
+  width: 359rpx;
+  display: inline-flex;
+  overflow: hidden;
+  border: 7rpx solid #fff;
+  position: relative;
+}
+
+.index .brand .main .item .backgroundImg image{
+  width: 380rpx;
+  height: 254rpx;
+}
+
+.index .brand .main .item text{
+  position: absolute;
+  top: 10rpx;
+  left: 0;
+  color: #333;
+}
+
+.index .brand .main .item text.smallfont{
+  top: 50rpx;
+  font-size: 24rpx;
+}
+

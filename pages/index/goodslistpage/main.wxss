@@ -1,0 +1,105 @@
+.index{
+  width: 750rpx;
+  background: #f4f4f4;
+  overflow: auto;
+}
+
+.index .header{
+  background: #fff;
+  width: 100%;
+  height: 84rpx;
+}
+
+.index .header scroll-view{
+   width: 100%;
+   height: 84rpx;
+   white-space: nowrap;
+}
+
+.index .header scroll-view view{
+  display: inline-flex; 
+  width: 120rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  justify-content: center;
+  color: #333;
+  box-sizing:border-box; 
+}
+
+.index .header scroll-view view text{
+     width: 95rpx;
+     height: 84rpx;
+     line-height: 84rpx;
+     box-sizing:border-box;
+     text-align: center 
+}
+.index .header scroll-view view text.active{
+  border-bottom:4rpx solid #ab2b2b;
+  color:  #ab2b2b;
+  
+}
+
+/* 商品列表 */
+
+.index .main{
+  margin-top:20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.index .main .goodscategory{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 140rpx;
+  background: #fff;
+  justify-content: center;
+  border-bottom: 4rpx solid #f4f4f4;
+}
+.index .main .goodscategory text{
+  text-align: center;
+  color: #333;
+}
+
+.index .main .goodscategory text.title{
+  color: #999;
+  line-height: 60rpx;
+  font-size: 24rpx; 
+}
+.index .main .goodlist{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+} 
+
+.index .main .goodlist .li{
+  width: 372rpx;
+  height: 436rpx;
+  display: flex;
+  background: white;
+  flex-direction: column;
+  justify-content: space-around;
+  box-sizing: border-box;
+  border: 2rpx solid #f4f4f4;
+}
+.index .main .goodlist .li .img{
+  text-align: center;
+}
+.index .main .goodlist .li .img image{
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.index .main .goodlist .li text{
+  font-size:24rpx;
+  color: #333;
+  text-align: center; 
+}
+
+.index .main .goodlist .li text.money{
+  color: #b4282d;
+  font-weight: 800;
+  line-height: 40rpx;
+  font-size: 32rpx;
+  text-align: center;
+}

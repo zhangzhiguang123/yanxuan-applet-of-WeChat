@@ -1,0 +1,44 @@
+<view class="index">
+  <!-- 搜索框 -->
+  <view class="search">
+    <text>河南省郑州市高新区创业中心一号</text>
+    <view class="inp">
+      <image src="../../static/images/search.png" class="img"></image>
+      <input placeholder="搜索商品"></input>
+    </view>
+  </view>
+  <!-- 轮播图 -->
+  <view class="swiper">
+    <swiper indicator-dots="{{swiperData.indicatorDots}}" autoplay="{{swiperData.autoplay}}" interval="{{swiperData.interval}}" duration="{{swiperData.duration}}" circular="true">
+      <block wx:for="{{swiperData.background}}" wx:key="{{index}}">
+        <swiper-item>
+          <view class="swiper-item {{item}}">
+            <image src="{{item.image_url}}" class="swiperimg"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- 商品分类菜单 -->
+  <view class="goodslist">
+    <view class="goodbox" wx:for="{{channelList}}" wx:key="{{index}}">
+      <navigator url="goodslistpage/main?data={{categoryList}}&id={{item.id}}" open-type="navigate">
+        <image src="{{item.icon_url}}"></image>
+        <text>{{item.name}}</text>
+      </navigator>
+    </view>
+  </view>
+  <!-- floor one brand-->
+  <view class="brand">
+    <view class="title">品牌制造商直供</view>
+    <view class="main">
+      <view wx:for="{{brandList}}" wx:key="{{index}}" class="item">
+        <navigator url="brandgoodlist/brand?name={{item.name}}&introduce={{item.simple_desc}}&id={{index}}" class="backgroundImg">
+          <image src="{{item.pic_url}}"></image>
+        </navigator>
+        <text>{{item.name}}</text>
+        <text class="smallfont">{{item.floor_price}}元起</text>
+      </view>
+    </view>
+  </view>
+</view>

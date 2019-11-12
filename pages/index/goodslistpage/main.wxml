@@ -1,0 +1,26 @@
+<view class="index">
+  <!-- 头部 -->
+  <view class="header">
+    <scroll-view scroll-x="true" scroll-left="{{scrollLeft}}">
+      <view wx:for="{{allData}}" wx:key="{{index}}" bindtap="activeMe" data-id="{{item.id}}" data-index="{{index}}">
+        <text class="{{isActive===index?'active':''}}">{{item.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 商品页 -->
+  <view class="main">
+    <view class="goodscategory">
+      <text>{{goodslist.name}}</text>
+      <text class="title">{{title[isActive]}}</text>
+    </view>
+    <view class="goodlist">
+      <view class="li" wx:for="{{goodslist.goodsList}}" wx:key="{{index}}">
+        <view class="img">
+          <image src="{{item.list_pic_url}}"></image>
+        </view>
+        <text>{{item.name}}</text>
+        <text class="money">￥{{item.retail_price}}</text>
+      </view>
+    </view>
+  </view>
+</view>

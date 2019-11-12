@@ -1,0 +1,30 @@
+<view class="page">
+<!-- banner图 -->
+    <view class="banner">
+       <image class="backgroundImg" src="http://yanxuan.nosdn.127.net/1541445967645114dd75f6b0edc4762d.png">
+       </image>
+       <text class="title">
+        {{title}}
+       </text>
+    </view>
+    <!-- 介绍 -->
+    <view class="introduce">
+        <text>
+          {{introduce}}
+        </text>
+    </view>
+    <!-- 商品列表 -->
+    <view class="goodslist">
+         <view wx:for="{{goodsList}}" class="item" wx:key="{{index}}">
+             <view class="img">
+                 <image src="{{item.list_pic_url}}"></image>
+             </view>
+             <text>{{item.name}}</text>
+             <text class="money">￥{{item.retail_price}}</text>
+         </view>
+    </view>
+    <!-- 暂无数据 -->
+    <view wx:for="{{isNull}}" wx:key="{{index}}" class="null">
+      数据库暂无数据......
+    </view>
+</view>
