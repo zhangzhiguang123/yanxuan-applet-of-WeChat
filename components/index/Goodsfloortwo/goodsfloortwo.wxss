@@ -1,0 +1,66 @@
+/* components/index/Goodsfloortwo/Goodsfloortwo.wxss */
+
+.main {
+  margin-top: 20rpx;
+  height: 440rpx;
+  width: 100%;
+}
+
+.main scroll-view {
+  white-space: nowrap;
+  height: 430rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  background: #fff;
+}
+
+.main scroll-view .item {
+  display: inline-flex;
+  height: 428rpx;
+  width: 300rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx;
+  border-left: 2rpx solid #f4f4f4;
+}
+
+.main scroll-view .item .img image {
+  width: 280rpx;
+  height: 280rpx;
+}
+
+.main scroll-view .item .desc {
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  padding-bottom:30rpx; 
+}
+
+.main scroll-view .item .desc text {
+  /* text-align: center; */
+  width: 264rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-indent: 1em;
+  font-weight: 800;
+  color: #333;
+  margin-top: 8rpx;
+}
+
+.main scroll-view .item .desc text.Desc {
+  height: 32rpx;
+  font-size: 24rpx;
+  color: #8a8a8a;
+  font-weight: 200;
+}
+
+.main scroll-view .item .desc text.money {
+  height: 32rpx;
+  font-weight: 200;
+  color: #9c3232;
+  font-size: 24rpx;
+  padding-bottom: 8rpx;
+  text-indent: 1em;
+}

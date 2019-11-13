@@ -41,4 +41,25 @@
       </view>
     </view>
   </view>
+  <!--  新品首发  -->
+   <view class="newgoods">
+        <view class="bgbox">
+            <text>新品首发</text>
+            <text class="lookall">查看全部</text>
+        </view>
+   </view>
+  <!-- 滚动列表 -->
+  <goodsfloortwo goodsdata="{{newGoods}}"></goodsfloortwo>
+
+  <!--  人气推荐  -->
+   <view class="newgoods two">
+        <view class="bgbox">
+            <text>人气推荐·好物精选</text>
+            <text class="lookall">查看全部</text>
+        </view>
+   </view>
+
+  <!-- 滚动列表 -->
+  <goodsfloortwo goodsdata="{{hotGoods}}"></goodsfloortwo>
+  
 </view>

@@ -14,7 +14,9 @@ Page({
     },
     channelList:[],
     categoryList:[],
-    brandList:[]
+    brandList:[],
+    newGoods:[],
+    hotGoods:[]
   },
 
   /**
@@ -43,9 +45,12 @@ Page({
           },
           channelList:res.data.channel,
           categoryList:categoryListStr,
-          brandList:res.data.brandList
+          brandList:res.data.brandList,
+          newGoods:res.data.newGoods,
+          hotGoods:res.data.hotGoods
         });
         console.log(res);
+        console.log(that.data.newGoods);
       }
     })
   },

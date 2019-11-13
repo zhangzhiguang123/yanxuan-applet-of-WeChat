@@ -23,7 +23,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.9.2",
 	"appid": "wx459c7456ddf51f4d",
-	"projectname": "%E7%BB%83%E4%B9%A01",
+	"projectname": "yanxuan-applet-of-WeChat",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
