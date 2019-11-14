@@ -18,7 +18,7 @@
         </image>
         <view class="nameandmoney">
           <text>{{item.goods_name}}</text>
-          <text>￥{{item.retail_price}}</text>
+          <text class="money">￥{{item.retail_price}}</text>
         </view>
         <text class="number">
                  X{{item.number}}
@@ -28,7 +28,7 @@
     </view>
   </view>
   <!-- 下单固定栏 -->
-  <view class="orders">
+  <view class="orders" wx:if="{{isShowOrder}}">
     <view class="selected" catchtap="goSelectAll">
       <image src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/checkbox-0e09baa37e.png" wx:if="{{isAllSelected}}"></image>
       <image src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/checkbox-checked-822e54472a.png" wx:if="{{!isAllSelected}}"></image>

@@ -12,7 +12,8 @@ Page({
     isSelected: [], //这个数组记录所有选中按钮的状态，元素为布尔类型，与购物车商品数据数组一一对应，true为没被选中
     isAllSelected: true, //这个代表全选按钮状态，true代表没被选中
     selectedNumber: 0,
-    allMoney: 0
+    allMoney: 0,
+    isShowOrder:false
   },
 
   /**
@@ -24,7 +25,11 @@ Page({
       that.setData({
         cartdata: res.data.data
       }); //拿购物车数据
-      console.log(that.data.cartdata);
+      if(that.data.cartdata.length!==0) { //根据购物车是否为空设置下单固定栏是否显示
+        that.setData({
+          isShowOrder:true
+        });
+      }
       that.data.cartdata.forEach((item, index) => { //开始时初始化isSelected数组，将所有的选中按钮置为不选中
         let mArr = that.data.isSelected;
         mArr.push(true);
