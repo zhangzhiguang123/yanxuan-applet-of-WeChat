@@ -3,6 +3,7 @@
 .main {
   width: 750rpx;
   background: #f4f4f4;
+  margin-bottom:100rpx; 
 }
 
 /* 头部介绍 */
@@ -44,6 +45,8 @@
   height: 160rpx;
   padding: 20rpx 30rpx;
   position: relative;
+  left: 0;
+  transition: all 200ms ease;
 }
 
 .mainn .cartlist .item .selected {
@@ -114,6 +117,7 @@
   position: fixed;
   bottom: 0rpx;
   display: flex;
+  background: #fff;
 }
 
 .main .orders .selected image {
@@ -128,13 +132,15 @@
   color: #333;
   /* padding-left: 40rpx; */
   line-height: 100rpx;
+  width: 230rpx;
 }
 
 .main .orders .allmoney {
-  padding-left: 350rpx;
+  text-align: right;
   line-height: 100rpx;
   color: #b4282d;
   padding-right: 50rpx;
+  flex: 1;
 }
 
 .main .orders .order {
@@ -146,4 +152,9 @@
   font-size: 29rpx;
   background: #b4282d;
   color: #fff;
+}
+
+/* 删除动画 */
+.main .cartlist .item.show{
+  left: -160rpx;
 }

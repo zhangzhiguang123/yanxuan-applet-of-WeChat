@@ -11,9 +11,11 @@ Page({
     cartdata: [],
     isSelected: [], //这个数组记录所有选中按钮的状态，元素为布尔类型，与购物车商品数据数组一一对应，true为没被选中
     isAllSelected: true, //这个代表全选按钮状态，true代表没被选中
-    selectedNumber: 0,
+    selectNumber: 0,
     allMoney: 0,
-    isShowOrder:false
+    isShowOrder:false,
+    movePosi:0,   //触发滚动位置横坐标，用于删除按钮处
+    hasShow:Number  //决定删除是否出现，数字为下标
   },
 
   /**
@@ -25,6 +27,7 @@ Page({
       that.setData({
         cartdata: res.data.data
       }); //拿购物车数据
+      console.log(that.data.cartdata);
       if(that.data.cartdata.length!==0) { //根据购物车是否为空设置下单固定栏是否显示
         that.setData({
           isShowOrder:true
@@ -99,15 +102,22 @@ Page({
     });
 
     let mArr = that.data.isSelected;
-    let isAlls = false;  //如果全被选中,就将全选按钮置为选中，这个变量保存是否被全选的flag
-    mArr.forEach(item=>{
+    let isAlls = false;  //如果全被选中,就将全选按钮置为选中，这个变量保存是否被全选的flag;
+    let selnum = 0;  //选中的商品数量
+    let allmoney = 0; //总钱数
+    mArr.forEach((item,index)=>{
       if(item){
-        isAlls = true;  //如果存在没被选中的将isAlls置位true
+        isAlls = true;  //如果存在没被选中的将isAlls置为true
+      }else{
+       selnum++;//选中数量增加
+       allmoney+=that.data.cartdata[index].number*that.data.cartdata[index].retail_price;  //总钱数增加
       }
     });
 
     that.setData({  //设置全选按钮
-      isAllSelected:isAlls
+      isAllSelected:isAlls,
+      selectNumber:selnum,
+      allMoney:allmoney
     });
 
   },
@@ -115,6 +125,8 @@ Page({
     let that = this;
     let mArr = that.data.isSelected;
     let flag = 1;  //立个flag，如果商品选中按钮中存在没有被选中的，将flag设为0，这是为了让全选按钮实现全选中
+    let selNum = 0; //选中的商品数量
+    let allmoney = 0; //总钱数
     mArr = mArr.map(item => {
       if (item) {
         flag = 0;
@@ -126,10 +138,68 @@ Page({
     if (flag) {  //如果商品选中按钮全被选中了，统一取反，实现反选功能
       mArr = mArr.map(item=>!item);
     }
-
+    mArr.forEach((item,index)=>{
+      if(!item){
+        selNum++;
+        allmoney += that.data.cartdata[index].number * that.data.cartdata[index].retail_price;
+      }
+    });
     that.setData({
       isSelected: mArr,  //重置商品按钮选中数组
-      isAllSelected: !that.data.isAllSelected  //将全选按钮反选
+      isAllSelected: !that.data.isAllSelected,  //将全选按钮反选
+      selectNumber:selNum,
+      allMoney:allmoney
+    });
+  },
+
+  moveStart(e){   //触摸删除事件
+    // console.log(e.changedTouches[0].clientX);
+    let that = this;
+    that.setData({
+      movePosi:e.changedTouches[0].clientX
+    });
+  },
+
+  moving(e){    //触摸滑动事件
+    let that = this;
+    if (e.changedTouches[0].clientX-that.data.movePosi<=-20){
+      that.setData({
+        hasShow:e.currentTarget.dataset.index
+      });
+    };
+    if (e.changedTouches[0].clientX - that.data.movePosi >= 20) {
+      if (e.currentTarget.dataset.index!==that.data.hasShow){  //防止反向滑动此商品，导致其他商品的删除按钮消失
+        return;
+      }else{
+        that.setData({
+          hasShow: Number
+        });
+      }
+      
+    }; 
+  },
+
+  deletThisGoods(e){   //删除处理
+    let that = this;
+    let id = e.currentTarget.dataset.id;
+    let url = "heyushuo/cart/deleteAction?id="+that.data.cartdata[id].id;
+    requestData(url).then(res=>{
+      // console.log(res);
+      if (res.statusCode === 200 && res.errMsg ==="request:ok"){
+        let mArr = that.data.cartdata; //更新视图
+        mArr.splice(id,1);
+        
+        wx.showToast({
+          title: '删除成功',
+        });
+
+        that.setData({
+          cartdata: mArr
+        });
+      }
+    }).catch(err=>{
+      console.log(err);
     });
   }
+
 })
