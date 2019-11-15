@@ -15,7 +15,8 @@ Page({
     allMoney: 0,
     isShowOrder:false,
     movePosi:0,   //触发滚动位置横坐标，用于删除按钮处
-    hasShow:Number  //决定删除是否出现，数字为下标
+    hasShow:Number,  //决定删除是否出现，数字为下标
+    deltransition:"all 300ms ease"  //控制删除过渡
   },
 
   /**
@@ -141,6 +142,7 @@ Page({
     mArr.forEach((item,index)=>{
       if(!item){
         selNum++;
+        // console.log(that.data.cartdata[index].number);
         allmoney += that.data.cartdata[index].number * that.data.cartdata[index].retail_price;
       }
     });
@@ -181,25 +183,42 @@ Page({
 
   deletThisGoods(e){   //删除处理
     let that = this;
-    let id = e.currentTarget.dataset.id;
-    let url = "heyushuo/cart/deleteAction?id="+that.data.cartdata[id].id;
-    requestData(url).then(res=>{
-      // console.log(res);
-      if (res.statusCode === 200 && res.errMsg ==="request:ok"){
-        let mArr = that.data.cartdata; //更新视图
-        mArr.splice(id,1);
-        
-        wx.showToast({
-          title: '删除成功',
-        });
+    wx.showModal({
+      title: '删除',
+      content: '确定删除？',
+      success(res) {
+        if (res.confirm) {   //点击了确认
+          let id = e.currentTarget.dataset.id;
+          let url = "heyushuo/cart/deleteAction?id=" + that.data.cartdata[id].id;
+          requestData(url).then(res => {
+            // console.log(res);
+            if (res.statusCode === 200 && res.errMsg === "request:ok") {
+              let mArr = that.data.cartdata; //更新视图
+              let isSlect = that.data.isSelected; //更新选中数组，保证数据数组与选中数组一致
 
-        that.setData({
-          cartdata: mArr
-        });
+              mArr.splice(id, 1);
+              isSlect.splice(id,1);
+              that.setData({//视图删除后将删除按钮隐藏
+                deltransition:"all 0s ease", 
+                hasShow:Number,
+                isSelected:isSlect
+              });
+              
+              wx.showToast({
+                title: '删除成功',
+              });
+              that.setData({
+                cartdata: mArr,
+                deltransition: "all 300ms ease"
+              });
+            }
+          }).catch(err => {
+            console.log(err);
+          });
+        } else if (res.cancel) {
+          return;    //点击取消直接return
+        }
       }
-    }).catch(err=>{
-      console.log(err);
-    });
+    })  
   }
-
 })

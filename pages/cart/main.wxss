@@ -46,13 +46,7 @@
   padding: 20rpx 30rpx;
   position: relative;
   left: 0;
-  transition: all 200ms ease;
-}
-
-.mainn .cartlist .item .selected {
-  width: 34rpx;
-  display: inline-flex;
-  height: 160rpx;
+  transition: all 300ms ease; 
 }
 
 .main .cartlist .item .selected image {

@@ -8,7 +8,7 @@
   </view>
   <!-- 购物车列表 -->
   <view class="cartlist">
-    <view class="item {{hasShow===index?'show':''}}" wx:for="{{cartdata}}" wx:key="{{index}}" data-index="{{index}}" bindtouchstart="moveStart" bindtouchmove="moving">
+    <view style="transition:{{deltransition}}" class="item {{hasShow===index?'show':'notshow'}}" wx:for="{{cartdata}}" wx:key="{{index}}" data-index="{{index}}" bindtouchstart="moveStart" bindtouchmove="moving">
       <view class="selected" catchtap="goSelected" data-index="{{index}}">
         <image src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/checkbox-0e09baa37e.png"   wx:if="{{isSelected[index]}}"></image>
         <image src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/checkbox-checked-822e54472a.png" wx:if="{{!isSelected[index]}}"></image>
