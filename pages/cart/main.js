@@ -1,6 +1,6 @@
 // pages/cart/main.js
 import {
-  requestData
+  requestData, sendData
 } from "../../api/rq.js"
 Page({
 
@@ -118,7 +118,7 @@ Page({
     that.setData({  //设置全选按钮
       isAllSelected:isAlls,
       selectNumber:selnum,
-      allMoney:allmoney
+      allMoney:allmoney.toFixed(2)
     });
 
   },
@@ -220,5 +220,61 @@ Page({
         }
       }
     })  
+  },
+
+  jumpOrderPage(){ //跳转到下单页，并把选中商品传到商品页
+    let that = this;
+    let sendCartData = [];  //选中的商品列表数据
+    if(!that.data.isAllSelected){
+      sendCartData=that.data.cartdata;
+    }else{
+      that.data.isSelected.forEach((item,index)=>{
+        if(!item){
+          sendCartData.push(that.data.cartdata[index]);
+        }
+      });
+    }
+
+
+    if (sendCartData.length === 0) {
+      wx.showToast({
+        title: '请选择商品！',
+        icon: "none"
+      })
+      return;
+    }
+
+
+    let postData = {};   //定义一个对象，保存将要提交给后台的数据；
+    postData.goodsId = "";
+    postData.allPrise = that.data.allMoney;
+    postData.openId=sendCartData[0].user_id;
+    sendCartData.forEach((item,index)=>{
+      if (index === sendCartData.length-1){
+        postData.goodsId += item.goods_id;
+        return;
+      }
+      postData.goodsId+=item.goods_id+","
+    });
+    
+    
+    sendData("heyushuo/order/submitAction").then(res=>{
+        console.log("成功");
+    }).catch(err=>{
+        wx.showToast({
+          title: '提交出错！！！',
+          icon:"none"
+        })
+    })
+    
+    
+    // console.log(sendCartData);
+    wx.navigateTo({
+      url: '../orderform/main',
+      success: function (res) {
+        // 通过eventChannel向被打开页面传送数据
+        res.eventChannel.emit('getCartDatalist', sendCartData);
+      }
+    })
   }
 })

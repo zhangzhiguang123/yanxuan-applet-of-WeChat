@@ -58,6 +58,20 @@
 					"id": -1,
 					"name": "pages/cart/main",
 					"pathName": "pages/cart/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/orderform/main",
+					"pathName": "pages/orderform/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editAddress/main",
+					"pathName": "pages/editAddress/main",
 					"scene": null
 				}
 			]

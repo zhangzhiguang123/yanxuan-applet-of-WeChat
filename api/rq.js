@@ -12,5 +12,22 @@ export function requestData(thisURL){
           }
         })
      });
+};
+
+export function sendData(url,data){
+  return new Promise((resolve,reject)=>{
+      wx.request({
+        url: baseURL+url,
+        method:"POST",
+        data:data,
+        success(res) {
+          resolve(res);
+        },
+        fail(error) {
+          reject(error);
+        }
+      })
+  })
+
 }
 

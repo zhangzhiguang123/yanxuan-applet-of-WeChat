@@ -35,6 +35,6 @@
     </view>
     <text class="allselect">全选({{selectNumber}})</text>
     <text class="allmoney">￥{{allMoney}}</text>
-    <text class="order">下单</text>
+    <text class="order" catchtap="jumpOrderPage">下单</text>
   </view>
 </view>

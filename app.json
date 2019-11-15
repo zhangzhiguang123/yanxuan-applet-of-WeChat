@@ -6,7 +6,11 @@
     "pages/cart/main",
     "pages/my/main",
     "pages/index/goodslistpage/main",
-    "pages/index/brandgoodlist/brand"
+    "pages/index/brandgoodlist/brand",
+    "pages/orderform/main",
+    "pages/editAddress/main",
+    "pages/editAddress/newAddress/main",
+    "pages/editAddress/reEditAdress/main"
   ],
   "window": {
     "backgroundTextStyle": "light",

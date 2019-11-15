@@ -1,0 +1,144 @@
+/* pages/orderform/main.wxss */
+
+.main {
+  width: 750rpx;
+  min-height: 1200rpx;
+  background: #f4f4f4;
+}
+
+/* 上部个人信息 */
+
+.main .address {
+  width: 100%;
+  height: 160rpx;
+  background: url("http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/address-bg-bd30f2bfeb.png") 0 0 repeat-x #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.main .address image {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 80rpx;
+  top: 50%;
+  transform: translateY(-10rpx);
+}
+
+.main .address .name {
+  padding: 50rpx 0 0 40rpx;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.main .address .name text {
+  padding-right: 40rpx;
+}
+
+.main .address .addr {
+  padding: 10rpx 0 0 40rpx;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.main .address .addr .default {
+  border: 1rpx solid #b4282d;
+  text-align: center;
+  line-height: 30rpx;
+  color: #b4282d;
+  margin-right: 40rpx;
+}
+
+/* 商品总价与优惠 */
+
+.main .allmoneybox {
+  margin-top: 20rpx;
+  width: 100%;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  color: #333;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.main .allmoneybox view {
+  padding: 30rpx 0;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #d9d9d9;
+}
+
+.main .allmoneybox view:last-child {
+  border-bottom: 0 none;
+}
+
+/* 商品列表 */
+
+.main .goodslist{
+   margin:20rpx 0 120rpx 0; 
+   box-sizing:border-box;
+   padding: 20rpx;
+   width: 100%;
+   display: flex;
+   flex-direction: column; 
+   background: #fff;
+}
+
+.main .goodslist .item{
+  height: 165rpx;
+  display: flex;
+  border-bottom: 2rpx solid #f4f4f4;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.main .goodslist .item image{
+   width: 124rpx;
+   height: 124rpx;
+   background: #f4f4f4;
+}
+.main .goodslist .item .info{
+  padding-left:20rpx;
+  color: #333; 
+  display: flex;
+  font-size: 28rpx;
+  flex-direction: column;
+}
+
+.main .goodslist .item text.number{
+  flex: 1;
+  text-align: right;
+  padding-right:20rpx;
+  color: #333; 
+   font-size: 28rpx;
+}
+/* 支付固定栏 */
+
+.main .payFixed {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 100rpx;
+  width: 100%;
+  display: flex;
+  background: #fff;
+  font-size: 28rpx;
+  color: #333;
+  line-height: 100rpx;
+  justify-content: space-between;
+}
+
+.main .payFixed text:first-child {
+  padding-left: 30rpx;
+}
+
+.main .payFixed text:last-child {
+  width: 200rpx;
+  height: 100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 29rpx;
+  background: #b4282d;
+  color: #fff;
+}

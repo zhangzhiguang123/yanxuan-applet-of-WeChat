@@ -1,0 +1,48 @@
+<view class="main">
+<!-- 个人信息 -->
+  <view class="address" catchtap="editAddress">
+    <view class="name">
+      <text>{{address.name}}</text>
+      <text>{{address.mobile}}</text>
+    </view>
+    <view class="addr">
+      <text class="default">默认</text>
+      <text>{{address.address}}{{address.address_detail}}</text>
+    </view>
+    <image src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/address-right-596d39df1e.png">
+    </image>
+  </view>
+  <!-- 商品总价与优惠 -->
+  <view class="allmoneybox">
+    <view>
+      <text>商品合计</text>
+      <text>￥{{backstageData.allPrise}}</text>
+    </view>
+    <view>
+      <text>运费</text>
+      <text>免运费</text>
+    </view>
+    <view>
+      <text>优惠券</text>
+      <text>暂无</text>
+    </view>
+  </view>
+
+  <!-- 商品列表 -->
+   <view class="goodslist">
+        <view class="item" wx:for="{{cartDataList}}" wx:key="{{index}}">
+           <image src="{{item.list_pic_url}}"></image>
+           <view class="info">
+              <text>{{item.goods_name}}</text>
+              <text>￥{{item.retail_price}}</text>
+           </view>
+           <text class="number">X{{item.number}}</text>
+        </view>
+   </view>
+
+   <!-- 支付固定栏 -->
+   <view class="payFixed">
+       <text>实付:￥{{backstageData.allPrise}}</text>
+       <text catchtap="goPay">支付</text>
+   </view>
+</view>
