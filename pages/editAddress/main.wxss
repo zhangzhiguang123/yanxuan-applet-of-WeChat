@@ -29,8 +29,13 @@
   transform: translateY(-10rpx);
 }
 
+
+.main .address .left{
+  width: 600rpx;
+  height: 140rpx;
+}
 .main .address .name {
-  padding: 30rpx 0 0 40rpx;
+  padding: 30rpx 0 0 30rpx;
   font-size: 28rpx;
   color: #333;
 }
@@ -40,7 +45,7 @@
 }
 
 .main .address .addr {
-  padding: 10rpx 0 0 40rpx;
+  padding: 10rpx 0 0 30rpx;
   font-size: 28rpx;
   color: #666;
 }

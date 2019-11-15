@@ -72,6 +72,13 @@
 					"id": -1,
 					"name": "pages/editAddress/main",
 					"pathName": "pages/editAddress/main",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/editAddress/reEditAdress/main",
+					"pathName": "pages/editAddress/reEditAdress/main",
 					"scene": null
 				}
 			]
