@@ -13,7 +13,7 @@ Page({
    */
   onLoad: function (options) {
      let that = this;
-     let id = options.id;
+     let id = options.id||"";
     requestData(`heyushuo/address/detailAction?id=${id}`).then(res=>{   //拿当前ID的个人信息，并赋给数据模型
       console.log(res.data.data);
       that.setData({
