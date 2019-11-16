@@ -75,6 +75,7 @@
   left: 0;
   bottom: 0;
   font-size: 28rpx;
+  background: #fff;
 }
 
 .main .newAddrBox .new {

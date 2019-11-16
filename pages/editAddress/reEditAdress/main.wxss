@@ -27,8 +27,13 @@
   margin-top: 60rpx;
   display: flex;
   justify-content: space-between;
+  line-height: 54rpx;
 }
-
+.main .setDefault label{
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+}
 /* 保存 */
 .main .save {
   position: fixed;

@@ -80,31 +80,42 @@ Page({
   selectAddress(e) {
     let that = this;
     let data = that.data.addrlist[e.currentTarget.dataset.index];
-    let pages = getCurrentPages();  // 当前页的数据
-    let prevPage = pages[pages.length - 2];  // 上一页的数据，也可以输出来看看有什么东西
+    let pages = getCurrentPages(); // 当前页的数据
+    let prevPage = pages[pages.length - 2]; // 上一页的数据，也可以输出来看看有什么东西
     prevPage.setData({
       address: data
     })
 
     wx.navigateBack({
-      delta:1
+      delta: 1
     })
   },
   /**
    * 重新相应编辑地址事件处理
    */
   reEditThisAddress(e) {
-   wx.navigateTo({
-     url: `reEditAdress/main?id=${e.currentTarget.dataset.index}`,
-   })
+    wx.navigateTo({
+      url: `reEditAdress/main?id=${e.currentTarget.dataset.index}`,
+    })
   },
 
-/**
+  /**
    * 添加新地址事件处理
    */
-  addAddress(){
-   wx.navigateTo({
-     url: 'reEditAdress/main'
-   })
+  addAddress() {
+    wx.navigateTo({
+      url: 'reEditAdress/main'
+    })
+  },
+  loadData() {   //用于刷新数据
+    let that = this;
+    requestData("heyushuo/address/getListAction?openId=oQmbb4sNZdxaUQZ0sfYgvtOP2S7c").then(res => { //请求后台地址列表
+      that.setData({
+        addrlist: res.data.data
+      });
+      console.log(that.data.addrlist);
+    }).catch(err => {
+      console.log(err);
+    })
   }
 })
