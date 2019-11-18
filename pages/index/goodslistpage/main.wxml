@@ -2,7 +2,7 @@
   <!-- 头部 -->
   <view class="header">
     <scroll-view scroll-x="true" scroll-left="{{scrollLeft}}">
-      <view wx:for="{{allData}}" wx:key="{{index}}" bindtap="activeMe" data-id="{{item.id}}" data-index="{{index}}">
+      <view wx:for="{{navList}}" wx:key="{{index}}" bindtap="activeMe" data-id="{{item.id}}" data-index="{{index}}">
         <text class="{{isActive===index?'active':''}}">{{item.name}}</text>
       </view>
     </scroll-view>
@@ -10,11 +10,11 @@
   <!-- 商品页 -->
   <view class="main">
     <view class="goodscategory">
-      <text>{{goodslist.name}}</text>
-      <text class="title">{{title[isActive]}}</text>
+      <text>{{currentData.name}}</text>
+      <text class="title">{{currentData.front_desc}}</text>
     </view>
     <view class="goodlist">
-      <view class="li" wx:for="{{goodslist.goodsList}}" wx:key="{{index}}">
+      <view class="li" wx:for="{{goodslist}}" wx:key="{{index}}">
         <view class="img">
           <image src="{{item.list_pic_url}}"></image>
         </view>

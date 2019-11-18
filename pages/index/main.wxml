@@ -22,7 +22,7 @@
   <!-- 商品分类菜单 -->
   <view class="goodslist">
     <view class="goodbox" wx:for="{{channelList}}" wx:key="{{index}}">
-      <navigator url="goodslistpage/main?data={{categoryList}}&id={{item.id}}" open-type="navigate">
+      <navigator url="goodslistpage/main?id={{item.id}}" open-type="navigate">
         <image src="{{item.icon_url}}"></image>
         <text>{{item.name}}</text>
       </navigator>
