@@ -42,24 +42,47 @@
     </view>
   </view>
   <!--  新品首发  -->
-   <view class="newgoods">
-        <view class="bgbox">
-            <text>新品首发</text>
-            <text class="lookall">查看全部</text>
-        </view>
-   </view>
+  <view class="newgoods">
+    <view class="bgbox">
+      <text>新品首发</text>
+      <text class="lookall">查看全部</text>
+    </view>
+  </view>
   <!-- 滚动列表 -->
   <goodsfloortwo goodsdata="{{newGoods}}"></goodsfloortwo>
 
   <!--  人气推荐  -->
-   <view class="newgoods two">
-        <view class="bgbox">
-            <text>人气推荐·好物精选</text>
-            <text class="lookall">查看全部</text>
-        </view>
-   </view>
+  <view class="newgoods two">
+    <view class="bgbox">
+      <text>人气推荐·好物精选</text>
+      <text class="lookall">查看全部</text>
+    </view>
+  </view>
 
   <!-- 滚动列表 -->
   <goodsfloortwo goodsdata="{{hotGoods}}"></goodsfloortwo>
-  
+
+  <!-- 专题精选 -->
+  <view class="topicList">
+    <view class="title">
+      <text class="titleMain">专题精选</text>
+      <image src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAAAAAAeW/F+AAAAAnRSTlMA/1uRIrUAAAE1SURBVCjPhVM9a8MwENU/f2BDS06k0Ba62AUthizdYg8txIPbIbOWekggKSVZSgkOGGqZ6+AvyS3xLZbvWed3d+8J7sLkSSh9X4ZJbvqkaJ9lSuhjlpYurCWgsn1RVcU+U4DUFlwvgWjTV+RNBCzrDq4XwJqdWAOLuoVjyCOP4igRN7AGDm3ye8APgGYWXFJf+c3f2vWpZMEpoi7zgquPAY+QsjCEgfMT6GvgDzIihxoumAi3p/5NIRcJMovwT4CHbmKcIRaP2NkNne+hqva8QygIZ6fh0xzP3acg4aFyB/KJeXuq4P0H31jwRPFwRO0OyljULjT2ivjvWAprLO/CzC4O1V3J9XglUwudkMOUmKak2AjZ+u3WETIza2psYExjA9IjE61mlolWIxM1FgzI8yiwLfgLLd4VfbLC0WAAAAAASUVORK5CYII="></image>
+    </view>
+    <scroll-view scroll-x="true">
+      <view class="goodsitem" wx:for="{{topicList}}" wx:key="{{index}}">
+        <image src="{{item.item_pic_url}}"></image>
+        <view class="title">
+          <text class="name">{{item.title}}</text>
+          <text class="money">{{item.price_info}}元起</text>
+        </view>
+        <text class="desc">{{item.subtitle}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 新品分类 -->
+  <view class="newcategorylist">
+    <view class="item" wx:for="{{newCategoryList}}" wx:key="{{index}}">
+      <newcategorylist goodsdata="{{item}}"></newcategorylist>
+    </view>
+  </view>
 </view>

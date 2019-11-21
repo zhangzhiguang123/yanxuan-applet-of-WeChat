@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-     "goodsfloortwo":"../../components/index/Goodsfloortwo/goodsfloortwo"
+     "goodsfloortwo":"../../components/index/Goodsfloortwo/goodsfloortwo",
+     "newcategorylist":"../../components/index/newCategoryList/newcategorylist"
   }
 }

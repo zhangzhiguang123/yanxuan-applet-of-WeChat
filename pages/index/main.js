@@ -13,10 +13,11 @@ Page({
       indicatorDots: true
     },
     channelList:[],
-    categoryList:[],
+    newCategoryList:[],
     brandList:[],
     newGoods:[],
-    hotGoods:[]
+    hotGoods:[],
+    topicList:[]
   },
 
   /**
@@ -33,8 +34,6 @@ Page({
     wx.request({
       url: 'http://118.25.222.68:5757/heyushuo/index/index', //请求数据
       success(res) {
-        // console.log(res.data)
-        let categoryListStr = JSON.stringify(res.data.newCategoryList);//为了给路由传参
         that.setData({
           swiperData: {
             background: res.data.banner,
@@ -44,13 +43,13 @@ Page({
             indicatorDots: true
           },
           channelList:res.data.channel,
-          categoryList:categoryListStr,
+          newCategoryList: res.data.newCategoryList,
           brandList:res.data.brandList,
           newGoods:res.data.newGoods,
-          hotGoods:res.data.hotGoods
+          hotGoods:res.data.hotGoods,
+          topicList: res.data.topicList
         });
         console.log(res);
-        console.log(that.data.newGoods);
       }
     })
   },

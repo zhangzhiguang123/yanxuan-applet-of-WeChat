@@ -9,7 +9,7 @@ Page({
      title:String,
      introduce:String,
      goodsList:Array,
-     allURL:[
+     allURL:[ 
        "heyushuo/brand/detailaction?id=1026000",
        "heyushuo/brand/detailaction?id=1001000",
        "heyushuo/brand/detailaction?id=1024000",

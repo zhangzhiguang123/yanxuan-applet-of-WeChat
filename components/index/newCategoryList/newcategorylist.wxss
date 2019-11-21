@@ -1,0 +1,71 @@
+.main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.main .title {
+  height: 88rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 88rpx;
+}
+
+.main .content {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.main .content .item {
+  width: 365rpx;
+  height: 400rpx;
+  background: #fff;
+  margin:0 5rpx 10rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.main .content .moreGoods{
+  width: 365rpx;
+  height: 400rpx;
+  background: #fff;
+  margin:0 5rpx 10rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 33rpx;
+  justify-content: center;
+  line-height: 100rpx;
+  align-items: center;
+}
+.main .content .moreGoods image{
+  width: 70rpx;
+  height: 70rpx;
+  padding-bottom:130rpx; 
+}
+
+.main .content .item:last-of-type{
+  margin-right: auto;
+}
+.main .content .item image {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.main .content .item .name {
+  margin-bottom: 5rpx;
+  text-indent: 1em;
+  width: 90%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.main .content .item .money {
+  color: #9c3232;
+  margin-bottom: 5rpx;
+  text-indent: 1em;
+}
